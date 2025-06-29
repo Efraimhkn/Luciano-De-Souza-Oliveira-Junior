@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luciano Souza Fotografia | Capturando Sorrisos em São Vicente</title>
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #e94560;
+            --accent: #0f3460;
+            --light: #f8f1f1;
+            --dark: #16213e;
+            --text: #333;
+            --gold: #ffd700;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        
+        body {
+            color: var(--text);
+            line-height: 1.7;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background-color: rgba(26, 26, 46, 0.9);
+            color: white;
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2.5rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(22, 33, 62, 0.7), rgba(22, 33, 62, 0.7)), url('https://i.postimg.cc/0j2TMz64/8e0a3042-d2e9-4a39-b45d-5aa0a220d3a3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: #d13856;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.6);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--secondary);
+        }
+        
+        section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.8rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .about {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+            transition: transform 0.5s;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-top: 2rem;
+            display: inline-block;
+        }
+        
+        .portfolio {
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            aspect-ratio: 1/1;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        .pricing {
+            background-color: white;
+            position: relative;
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .pricing-table thead {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .pricing-table th {
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .pricing-table th:first-child {
+            text-align: left;
+        }
+        
+        .pricing-table tbody tr:nth-child(even) {
+            background-color: rgba(248, 241, 241, 0.5);
+        }
+        
+        .pricing-table tbody tr:hover {
+            background-color: rgba(233, 69, 96, 0.05);
+        }
+        
+        .pricing-table td {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .price-tag {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .popular {
+            position: relative;
+        }
+        
+        .popular::after {
+            content: 'MAIS PEDIDO';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .check-mark {
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, var(--dark), var(--accent));
+            color: white;
+        }
+        
+        .contact .section-title {
+            color: white;
+        }
+        
+        .contact .section-title::after {
+            background: var(--secondary);
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 4rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .copyright {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-top: 3rem;
+            }
+            
+            .contact-form {
+                margin-top: 3rem;
+            }
+            
+            .pricing-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+                display: block;
+            }
+        }
+        
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .hamburger span:nth-child(2), .hamburger span:nth-child(3) {
+            top: 10px;
+        }
+        
+        .hamburger span:nth-child(4) {
+            top: 20px;
+        }
+        
+        .hamburger.open span:nth-child(1) {
+            top: 10px;
+            width: 0%;
+            left: 50%;
+        }
+        
+        .hamburger.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        .hamburger.open span:nth-child(4) {
+            top: 10px;
+            width: 0%;
+            left: 50%;
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Luciano<span>Souza</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#pricing">Preços</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="fade-in">Capturando Sorrisos, Criando Memórias Eternas</h1>
+            <p class="fade-in delay-1">Fotografia autêntica que conta sua história com emoção e beleza natural</p>
+            <div class="fade-in delay-2">
+                <a href="#contact" class="btn">Agende sua sessão</a>
+                <a href="#portfolio" class="btn btn-outline">Veja meu trabalho</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>Luciano de Souza Oliveira Junior</h3>
+                    <p>Com apenas 19 anos, sou um fotógrafo apaixonado por capturar momentos especiais, nascido e criado na bela São Vicente, litoral de São Paulo. Minha jornada na fotografia começou como um hobby e rapidamente se transformou em uma paixão que desejo transformar em carreira.</p>
+                    <p>Meu estilo é natural, espontâneo e emocional. Acredito que as melhores fotos são aquelas que capturam a essência verdadeira das pessoas, seus sorrisos mais sinceros e momentos mais autênticos.</p>
+                    <p>Com equipamento profissional e olhar atento aos detalhes, meu objetivo é criar imagens que contem histórias e que você possa guardar para sempre.</p>
+                    <div class="signature">Luciano Souza</div>
+                </div>
+                <div class="about-image fade-in delay-1">
+                    <img src="https://i.postimg.cc/tTD13dLV/2faf8fb4-45a9-46ce-afed-87e259a5a33b.jpg" alt="Luciano Souza - Fotógrafo em São Vicente">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title fade-in">Meu Portfólio</h2>
+            <div class="gallery">
+                <div class="gallery-item fade-in">
+                    <img src="https://i.postimg.cc/0j2TMz64/8e0a3042-d2e9-4a39-b45d-5aa0a220d3a3.jpg" alt="Ensaio Fotográfico em São Vicente">
+                </div>
+                <div class="gallery-item fade-in delay-1">
+                    <img src="https://i.postimg.cc/XNsSMkm6/97373554-081c-46b7-8368-bc75eb914e43.jpg" alt="Fotografia de Casal">
+                </div>
+                <div class="gallery-item fade-in delay-2">
+                    <img src="https://i.postimg.cc/WbWV6qDJ/IMG-20250320-171908.jpg" alt="Retratos Profissionais">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://i.postimg.cc/fbn172tm/IMG-20241230-165707.jpg" alt="Fotos ao Ar Livre">
+                </div>
+                <div class="gallery-item fade-in delay-1">
+                    <img src="https://i.postimg.cc/CL235Lwv/IMG-20241230-165733.jpg" alt="Ensaio na Praia">
+                </div>
+                <div class="gallery-item fade-in delay-2">
+                    <img src="https://i.postimg.cc/YS6Zd6YV/IMG-20250117-172628.jpg" alt="Fotografia Criativa">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://i.postimg.cc/W399yX39/IMG-20250307-170419.jpg" alt="Momentsos Especiais">
+                </div>
+                <div class="gallery-item fade-in delay-1">
+                    <img src="https://i.postimg.cc/vc4bfb7j/IMG-20250307-170644.jpg" alt="Retrato em Preto e Branco">
+                </div>
+                <div class="gallery-item fade-in delay-2">
+                    <img src="https://i.postimg.cc/0rW9zbSD/IMG-20250307-171815-1.jpg" alt="Fotografia de Produto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title fade-in">Tabela de Preços</h2>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;" class="fade-in delay-1">Confira meus pacotes populares de fotografia com valores acessíveis para todos os momentos especiais</p>
+            
+            <div class="fade-in delay-2">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Serviço</th>
+                            <th>Básico</th>
+                            <th class="popular">Standard</th>
+                            <th>Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tempo de Sessão</td>
+                            <td>1 hora</td>
+                            <td>2 horas</td>
+                            <td>3 horas</td>
+                        </tr>
+                        <tr>
+                            <td>Fotos Editadas</td>
+                            <td>15 fotos</td>
+                            <td>30 fotos</td>
+                            <td>50 fotos</td>
+                        </tr>
+                        <tr>
+                            <td>Localizações</td>
+                            <td>1 local</td>
+                            <td>2 locais</td>
+                            <td>3 locais</td>
+                        </tr>
+                        <tr>
+                            <td>Mudas de Roupa</td>
+                            <td>1 muda</td>
+                            <td>2 mudas</td>
+                            <td>3 mudas</td>
+                        </tr>
+                        <tr>
+                            <td>Entrega Digital</td>
+                            <td><span class="check-mark">✓</span></td>
+                            <td><span class="check-mark">✓</span></td>
+                            <td><span class="check-mark">✓</span> + USB</td>
+                        </tr>
+                        <tr>
+                            <td>Fotos Impressas</td>
+                            <td>-</td>
+                            <td>5 fotos (15x21)</td>
+                            <td>10 fotos (15x21)</td>
+                        </tr>
+                        <tr>
+                            <td>Foto Ampliada</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>1 foto (20x30)</td>
+                        </tr>
+                        <tr>
+                            <td>Prazo de Entrega</td>
+                            <td>7 dias</td>
+                            <td>7 dias</td>
+                            <td>5 dias</td>
+                        </tr>
+                        <tr>
+                            <td>Preço</td>
+                            <td class="price-tag">R$ 200</td>
+                            <td class="price-tag">R$ 350</td>
+                            <td class="price-tag">R$ 500</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><a href="#contact" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Contratar</a></td>
+                            <td><a href="#contact" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Contratar</a></td>
+                            <td><a href="#contact" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Contratar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="margin-top: 3rem; text-align: center;">
+                    <p style="font-style: italic; opacity: 0.8;">* Valores especiais para eventos sociais (15 anos, casamentos, formaturas) - consulte</p>
+                    <p style="font-style: italic; opacity: 0.8;">* Pacotes personalizados disponíveis conforme necessidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Vamos Conversar</h2>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Estou disponível para ensaios e eventos!</h3>
+                    <p>Entre em contato para discutirmos seu projeto fotográfico ou para tirar qualquer dúvida sobre meus serviços.</p>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>juniorsouzahkn@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>Telefone/WhatsApp</h4>
+                            <p>(13) 97823-2389</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Localização</h4>
+                            <p>São Vicente - SP e região</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/luciano_gol_ft/" target="_blank" title="Instagram">📸</a>
+                        <a href="https://wa.me/5513978232389" target="_blank" title="WhatsApp">💬</a>
+                        <a href="mailto:juniorsouzahkn@gmail.com" title="Email">✉️</a>
+                    </div>
+                </div>
+                <div class="contact-form fade-in delay-1">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Seu Nome</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Seu Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone/WhatsApp</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Serviço de Interesse</label>
+                            <select id="service">
+                                <option value="">Selecione...</option>
+                                <option value="basico">Pacote Básico</option>
+                                <option value="standard">Pacote Standard</option>
+                                <option value="premium">Pacote Premium</option>
+                                <option value="evento">Evento Social</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" required placeholder="Conte-me sobre seu projeto, data preferencial e qualquer detalhe importante..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%; padding: 1.2rem;">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Luciano<span>Souza</span></div>
+                <p class="footer-text">Fotografia profissional em São Vicente e região, capturando momentos especiais com técnica e sensibilidade.</p>
+                <p class="copyright">© 2023 Luciano Souza Fotografia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('open');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would normally send the form data to a server
+                // For this example, we'll just show an alert
+                alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+                this.reset();
+            });
+        }
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state
+        fadeElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+        
+        // Check on scroll and load
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</body>
+</html>
